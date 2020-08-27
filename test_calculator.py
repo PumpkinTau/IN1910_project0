@@ -1,4 +1,5 @@
 import calculator
+import math
 
 #Creates an error message for a typical assert statement
 def message(expected, recieved):
@@ -22,4 +23,11 @@ def test_add_excercise_3():
     string = calculator.add("Hello ", "World")
     expected = "Hello World"
     assert string == expected, message(expected, string)
-    
+
+#Tests the factorial function for 4 inputs against math.factorial
+def test_factorial_excercise_4():
+    for n in (0, 1, 5, 10):
+        num = calculator.factorial(n)
+        expected = math.factorial(n)
+        assert num==expected, message(expected, num)
+
