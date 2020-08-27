@@ -1,5 +1,5 @@
 
-#Implements addition
+#Implements addition of both numbers and strings
 def add(x, y):
     return x + y
 
@@ -16,3 +16,8 @@ def sin(x, N):
     for n in range(N+1):
         num += ((-1)**n * x**(2*n + 1)) / factorial(2*n + 1)
     return num
+
+#Implements division of numbers
+#Returns x/y
+def divide(x, y):
+    return x/y
