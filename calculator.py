@@ -21,3 +21,10 @@ def sin(x, N):
 #Returns x/y
 def divide(x, y):
     return x/y
+
+#Implements the taylor series for e^x for N+1 terms
+def exp(x, N):
+    num = 0
+    for n in range(N+1):
+        num += x**n / factorial(n)
+    return num

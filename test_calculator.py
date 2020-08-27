@@ -51,7 +51,8 @@ def test_divide_excercise_4():
 
 #Tests the exp function for 4 inputs against math.exp
 def test_exp_excercise_4():
+    N = 50
     for x in (-2, 0, 0.5, 4):
-        num = calculator.exp(x)
+        num = calculator.exp(x, N)
         expected = math.exp(x)
         assert abs(num - expected) < tolerance, message(expected, num)
