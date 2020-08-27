@@ -39,3 +39,12 @@ def test_sin_excercise_4():
         num = calculator.sin(x, N)
         expected = math.sin(x)
         assert abs(num - expected) < tolerance, message(expected, num)
+
+#Tests the divide function for 4 sets of inputs
+def test_divide_excercise_4():
+    tolerance = 10**-12
+    args = ((0, 1), (100, 10), (7, 5), (5, 7))
+    expected = (0, 10, 1.4, 0.714285714285714)
+    for i in range(4):
+        num = calculator.divide(args[i][0], args[i][1])
+        assert abs(num - expected[i] < tolerance), message(expected[i], num) 
