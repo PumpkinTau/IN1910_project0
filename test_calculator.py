@@ -31,3 +31,11 @@ def test_factorial_excercise_4():
         expected = math.factorial(n)
         assert num==expected, message(expected, num)
 
+#Tests the sin function for 4 inpusts against math.sin
+def test_sin_excercise_4():
+    tolerance = 10**-12
+    N = 50
+    for x in (0, 0.1, 1, math.pi):
+        num = calculator.sin(x, N)
+        expected = math.sin(x)
+        assert abs(num - expected) < tolerance, message(expected, num)
