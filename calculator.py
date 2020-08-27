@@ -28,3 +28,15 @@ def exp(x, N):
     for n in range(N+1):
         num += x**n / factorial(n)
     return num
+
+#Implements a combination
+#Given integers n and i, returns the number of ways to choose i elements of a set of n
+def comb(n, i):
+    if i > n:
+        return 0
+    else:
+        num = 1
+        for j in range(n-i+1, n+1):
+            num *= j
+        num /= factorial(i)
+        return num
