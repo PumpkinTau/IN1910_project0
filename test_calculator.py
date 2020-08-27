@@ -3,7 +3,7 @@ import math
 
 #Creates an error message for a typical assert statement
 def message(expected, recieved):
-    return f"Expected {expected}, got {num}"
+    return f"Expected {expected}, got {recieved}"
 
 #Tests add function for integers
 def test_add_excercise_1():
