@@ -5,6 +5,8 @@ def add(x, y):
 
 #Implements the factorial function n! for integers n
 def factorial(n):
+    if not isinstance(n, int):
+        raise TypeError("calculator.factorial does not support non-integer arguments.")
     fact = 1
     for i in range(1, n+1):
         fact *= i
@@ -12,6 +14,8 @@ def factorial(n):
 
 #Implements the taylor series for sin(x) for N+1 terms
 def sin(x, N):
+    if not isinstance(N, int):
+        raise TypeError("Please enter an integer number of terms.")
     num = 0
     for n in range(N+1):
         num += ((-1)**n * x**(2*n + 1)) / factorial(2*n + 1)
@@ -24,6 +28,8 @@ def divide(x, y):
 
 #Implements the taylor series for e^x for N+1 terms
 def exp(x, N):
+    if not isinstance(N, int):
+        raise TypeError("Please enter an integer number of terms.")
     num = 0
     for n in range(N+1):
         num += x**n / factorial(n)
@@ -32,6 +38,10 @@ def exp(x, N):
 #Implements a combination
 #Given integers n and i, returns the number of ways to choose i elements of a set of n
 def comb(n, i):
+    if not (isinstance(n, int) and isinstance(i, int)):
+        raise TypeError("calculator.comb does not support non-integer arguments.")
+    if n < 0 or i < 0:
+        raise ValueError("calculator.comb does not support negative arguments.")
     if i > n:
         return 0
     else:
