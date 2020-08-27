@@ -56,3 +56,11 @@ def test_exp_excercise_4():
         num = calculator.exp(x, N)
         expected = math.exp(x)
         assert abs(num - expected) < tolerance, message(expected, num)
+
+#Tests the combination function for 4 inputs against math.comb
+def test_comb_excercise_4():
+    n = 50
+    for i in (0, 5, 25, 60):
+        num = calculator.comb(n, i)
+        expected = math.comb(n, i)
+        assert num == expected, message(expected, num)
