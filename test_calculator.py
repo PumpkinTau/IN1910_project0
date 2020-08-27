@@ -1,5 +1,6 @@
 import calculator
 import math
+import pytest
 
 #The tolerance used by all tests for floating point numbers
 tolerance = 10**-12
@@ -74,3 +75,12 @@ def test_comb_large_args_excercise_4():
         #Since the numbers are quite large, the relative error is more interesting than the absolute error
         assert abs(num/expected - 1) < tolerance, message(expected, num)
 
+#Checks that the add function raises a TypeError for str+int
+def test_add_raises_TypeError_for_string_plus_integer_excercise_5():
+    with pytest.raises(TypeError):
+        calculator.add("Hello", 2)
+
+#Checks that the divide function raises a ZeroDivisionError for a/0
+def test_divide_raises_ZeroDivisionError_for_integer_divided_by_0_excercise_5():
+    with pytest.raises(ZeroDivisionError):
+        calculator.divide(5, 0)
