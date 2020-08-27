@@ -64,3 +64,13 @@ def test_comb_excercise_4():
         num = calculator.comb(n, i)
         expected = math.comb(n, i)
         assert num == expected, message(expected, num)
+
+#Tests the comb function for numbers too large to be stored as ints
+def test_comb_large_args_excercise_4():
+    n = 500
+    for i in (0, 50, 250, 500):
+        num = calculator.comb(n, i)
+        expected = math.comb(n, i)
+        #Since the numbers are quite large, the relative error is more interesting than the absolute error
+        assert abs(num/expected - 1) < tolerance, message(expected, num)
+
