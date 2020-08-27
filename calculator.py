@@ -15,7 +15,9 @@ def factorial(n):
 #Implements the taylor series for sin(x) for N+1 terms
 def sin(x, N):
     if not isinstance(N, int):
-        raise TypeError("Please enter an integer number of terms.")
+        raise TypeError("Please enter an integer value for N")
+    if N < 0:
+        raise ValueError("Please enter a non-negative value for N")
     num = 0
     for n in range(N+1):
         num += ((-1)**n * x**(2*n + 1)) / factorial(2*n + 1)
@@ -29,7 +31,9 @@ def divide(x, y):
 #Implements the taylor series for e^x for N+1 terms
 def exp(x, N):
     if not isinstance(N, int):
-        raise TypeError("Please enter an integer number of terms.")
+        raise TypeError("Please enter an integer value for N")
+    if N < 0:
+        raise ValueError("Please enter a non-negative value for N")
     num = 0
     for n in range(N+1):
         num += x**n / factorial(n)
