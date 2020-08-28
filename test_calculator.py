@@ -10,21 +10,25 @@ def message(expected, recieved):
     return f"Expected {expected}, got {recieved}"
 
 #Tests add function for integers
-def test_add_excercise_1():
-    num = calculator.add(1, 2)
-    expected = 3 
+@pytest.mark.parametrize("x, y, expected", \
+    ((1, 2, 3), (-1, 1, 0), (-2, -4, -6), (-2, 3, 1)))
+def test_add_excercise_1(x, y, expected):
+    num = calculator.add(x, y) 
     assert num==expected, message(expected, num)
 
 #Tests add function for floating point numbers
-def test_add_excercise_2():
-    num = calculator.add(0.1, 0.2)
-    expected = 0.3
+@pytest.mark.parametrize("x, y, expected", \
+    ((0.1, 0.2, 0.3), (-1.1, 1.1, 0), (-2.0, -4.1, -6.1), (-2.1, 3.2, 1.1)))
+def test_add_excercise_2(x, y, expected):
+    num = calculator.add(x, y)
     assert abs(num - expected) < tolerance, message(expected, num)
 
 #Tests add function for strings
-def test_add_excercise_3():
-    string = calculator.add("Hello ", "World")
-    expected = "Hello World"
+@pytest.mark.parametrize("x, y, expected", \
+    (("Hello ", "World", "Hello World"), ("Hello World", "", "Hello World"), \
+        ("'@", "Hello World'", "'@Hello World'"), ("Hello ", "Wørld", "Hello Wørld")))
+def test_add_excercise_3(x, y, expected):
+    string = calculator.add(x, y)
     assert string == expected, message(expected, string)
 
 #Tests the factorial function for 4 inputs against math.factorial
