@@ -75,15 +75,18 @@ def test_comb_large_args_excercise_4(i):
     n = 500
     num = calculator.comb(n, i)
     expected = math.comb(n, i)
-    #Since the numbers are quite large, the relative error is more interesting than the absolute error
+    #Since the numbers are quite large, the relative error is more interesting 
+    #than the absolute error
     assert abs(num/expected - 1) < tolerance, message(expected, num)
 
-#Checks that the add function raises a TypeError for str+int
-def test_add_raises_TypeError_for_string_plus_integer_excercise_5():
+#Checks that the add function raises a TypeError for str+int and str+float
+@pytest.mark.parametrize("str, num", (("Hello", 2), ("Hello", 2.5), ("1", 1)))
+def test_add_raises_TypeError_for_string_plus_number_excercise_5(str, num):
     with pytest.raises(TypeError):
-        calculator.add("Hello", 2)
+        calculator.add(str, num)
 
-#Checks that the divide function raises a ZeroDivisionError for a/0
-def test_divide_raises_ZeroDivisionError_for_integer_divided_by_0_excercise_5():
+#Checks that the divide function raises a ZeroDivisionError for x/0
+@pytest.mark.parametrize("x", (5, 5.5, 0, 0.0))
+def test_divide_raises_ZeroDivisionError_for_number_divided_by_0_excercise_5(x):
     with pytest.raises(ZeroDivisionError):
-        calculator.divide(5, 0)
+        calculator.divide(x, 0)
