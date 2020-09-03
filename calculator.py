@@ -7,6 +7,8 @@ def add(x, y):
 def factorial(n):
     if not isinstance(n, int):
         raise TypeError("calculator.factorial does not support non-integer arguments.")
+    if n < 0:
+        raise ValueError("calculator.factorial does not support negative arguments.")
     fact = 1
     for i in range(1, n+1):
         fact *= i

@@ -51,7 +51,7 @@ def test_sin_excercise_4(x):
     ((0, 1, 0), (120.75, 10.5, 11.5), (7, 5, 1.4), (5, 7, 0.714285714285714)))
 def test_divide_excercise_4(x, y, expected):
     num = calculator.divide(x, y)
-    assert abs(num - expected < tolerance), message(expected, num) 
+    assert abs(num - expected) < tolerance, message(expected, num) 
 
 #Tests the exp function for 4 inputs against math.exp
 @pytest.mark.parametrize("x", (-2, 0, 0.5, 4))
@@ -68,16 +68,6 @@ def test_comb_excercise_4(i):
     num = calculator.comb(n, i)
     expected = math.comb(n, i)
     assert num == expected, message(expected, num)
-
-#Tests the comb function for numbers too large to be stored as ints
-@pytest.mark.parametrize("i", (0, 50, 250, 500))
-def test_comb_large_args_excercise_4(i):
-    n = 500
-    num = calculator.comb(n, i)
-    expected = math.comb(n, i)
-    #Since the numbers are quite large, the relative error is more interesting 
-    #than the absolute error
-    assert abs(num/expected - 1) < tolerance, message(expected, num)
 
 #Checks that the add function raises a TypeError for str+int and str+float
 @pytest.mark.parametrize("str, num", (("Hello", 2), ("Hello", 2.5), ("1", 1)))
